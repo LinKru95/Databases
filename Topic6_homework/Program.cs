@@ -103,7 +103,7 @@ namespace Topic6_homework
                         {
                             foreach (var item in bookItem.Pages)
                             {
-                                Console.WriteLine(item.ToString());
+                                Console.WriteLine(item.Content);
                             }
                         }
 
