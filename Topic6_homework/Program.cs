@@ -122,9 +122,5 @@ namespace Topic6_homework
                 }
             }
         }
-        public void Insert()
-        {
-
-        }
     }
 }
