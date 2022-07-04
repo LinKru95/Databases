@@ -63,3 +63,5 @@ C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\
 C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\Topic_8\obj\Debug\net5.0\ref\Topic_8.dll
 C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\Topic_8\obj\Debug\net5.0\Topic_8.pdb
 C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\Topic_8\obj\Debug\net5.0\Topic_8.genruntimeconfig.cache
+C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\Topic_8\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\linas.k\OneDrive - Baltijos Brasta\Desktop\New folder\GitHub\Databases\Topic_8\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

@@ -5,57 +5,72 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Topic_8_Homework;
+using Topic_5;
 
-namespace Topic_8_Homework.Migrations
+namespace Topic_5.Migrations
 {
-    [DbContext(typeof(FolderContext))]
-    [Migration("20220622181015_2")]
-    partial class _2
+    [DbContext(typeof(BookContext))]
+    [Migration("20220703062105_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Topic_8_Homework.File", b =>
+            modelBuilder.Entity("Topic_5.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("FolderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FullDirectory")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Size")
+                    b.HasKey("Id");
+
+                    b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Topic_5.Page", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Number")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Files");
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Pages");
                 });
 
-            modelBuilder.Entity("Topic_8_Homework.Folder", b =>
+            modelBuilder.Entity("Topic_5.Page", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("Topic_5.Book", "Book")
+                        .WithMany("Pages")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Navigation("Book");
+                });
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Folders");
+            modelBuilder.Entity("Topic_5.Book", b =>
+                {
+                    b.Navigation("Pages");
                 });
 #pragma warning restore 612, 618
         }

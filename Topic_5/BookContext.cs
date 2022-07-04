@@ -12,6 +12,6 @@ namespace Topic_5
         public DbSet<Page> Pages { get; set; }
         public DbSet<Book> Books { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
-            options.UseSqlServer($"Server=(localdb)\\mssqllocaldb;Database=BooksDb;Trusted_Connection=True;");
+            options.UseSqlServer($"Server=(localdb)\\mssqllocaldb;Database=BooksWithPagesDb;Trusted_Connection=True;");
     }
 }

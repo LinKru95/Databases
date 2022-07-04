@@ -12,7 +12,7 @@ namespace Topic_8.Entities
         [DefaultValue("newid()")]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Category> Categories { get; set; }
+        public virtual List<Category> Categories { get; set; }
         public Book(string name)
         {
             Id = Guid.NewGuid();

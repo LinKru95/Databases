@@ -34,8 +34,8 @@ namespace Topic_8_Homework.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -60,13 +60,16 @@ namespace Topic_8_Homework.Migrations
 
             modelBuilder.Entity("Topic_8_Homework.File", b =>
                 {
-                    b.HasOne("Topic_8_Homework.Folder", "Folder")
-                        .WithMany()
+                    b.HasOne("Topic_8_Homework.Folder", null)
+                        .WithMany("Files")
                         .HasForeignKey("FolderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.Navigation("Folder");
+            modelBuilder.Entity("Topic_8_Homework.Folder", b =>
+                {
+                    b.Navigation("Files");
                 });
 #pragma warning restore 612, 618
         }

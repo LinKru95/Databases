@@ -10,10 +10,12 @@ namespace Topic_8_Homework
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public List<File> Files { get; set; }
         public Folder(string name)
         {
             Id = Guid.NewGuid();
             Name = name;
+            Files = new List<File>();
         }
     }
 }

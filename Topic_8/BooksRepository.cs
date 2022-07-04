@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,10 @@ namespace Topic_8
         public void SaveChanges()
         {
             _dbContext.SaveChanges();
+        }
+        public List<Book> GetBooksLazily(string bookNameSubString)
+        {
+            return _dbContext.Books.Include(x => x.Categories).Where(x => x.Name.Contains(bookNameSubString)).ToList();
         }
     }
 }

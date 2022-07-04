@@ -14,9 +14,8 @@ namespace Topic_8_Homework
         public Guid FolderId { get; set; }
         public string Name { get; set; }
         public string FullDirectory { get; set; }
-        public int Size { get; set; }
-        public Folder Folder { get; set; }
-        public File(string name, string fullDirectory, int size)
+        public long Size { get; set; }
+        public File(string name, string fullDirectory, long size)
         {
             Id = Guid.NewGuid();
             Name = name;

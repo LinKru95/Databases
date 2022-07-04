@@ -39,7 +39,7 @@ namespace Topic_5.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("BookId")
+                    b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Content")
@@ -57,9 +57,13 @@ namespace Topic_5.Migrations
 
             modelBuilder.Entity("Topic_5.Page", b =>
                 {
-                    b.HasOne("Topic_5.Book", null)
+                    b.HasOne("Topic_5.Book", "Book")
                         .WithMany("Pages")
-                        .HasForeignKey("BookId");
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Topic_5.Book", b =>

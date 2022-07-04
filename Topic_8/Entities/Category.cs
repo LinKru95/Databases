@@ -10,7 +10,7 @@ namespace Topic_8.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Book> Books { get; set; }
+        public virtual List<Book> Books { get; set; }
         public Category(string name)
         {
             Id = Guid.NewGuid();
